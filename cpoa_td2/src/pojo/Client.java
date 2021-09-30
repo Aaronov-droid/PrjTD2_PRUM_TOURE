@@ -3,17 +3,16 @@ package pojo;
 
 public class Client {
 	
-	protected int code_postal;
+	protected String code_postal;
 	protected int id_client;
 	protected String nom;
-	protected int no_rue;
+	protected String no_rue;
 	protected String pays;
 	protected String prenom;
 	protected String Ville;
 	protected String Voie;
 	
-	public Client(int code_postal, int id_client, String nom, int no_rue, String pays, String prenom, String ville,
-			String voie) {
+	public Client(int id_client, String nom, String prenom, String no_rue, String voie, String code_postal, String ville, String pays) {
 		super();
 		this.code_postal = code_postal;
 		this.id_client = id_client;
@@ -21,15 +20,15 @@ public class Client {
 		this.no_rue = no_rue;
 		this.pays = pays;
 		this.prenom = prenom;
-		Ville = ville;
-		Voie = voie;
+		this.Ville = ville;
+		this.Voie = voie;
 	}
 
-	public int getCode_postal() {
+	public String getCode_postal() {
 		return code_postal;
 	}
 
-	public void setCode_postal(int code_postal) {
+	public void setCode_postal(String code_postal) {
 		this.code_postal = code_postal;
 	}
 
@@ -49,11 +48,11 @@ public class Client {
 		this.nom = nom;
 	}
 
-	public int getNo_rue() {
+	public String getNo_rue() {
 		return no_rue;
 	}
 
-	public void setNo_rue(int no_rue) {
+	public void setNo_rue(String no_rue) {
 		this.no_rue = no_rue;
 	}
 
@@ -101,9 +100,9 @@ public class Client {
 		int result = 1;
 		result = prime * result + ((Ville == null) ? 0 : Ville.hashCode());
 		result = prime * result + ((Voie == null) ? 0 : Voie.hashCode());
-		result = prime * result + code_postal;
+		result = prime * result + ((code_postal == null) ? 0 : code_postal.hashCode());
 		result = prime * result + id_client;
-		result = prime * result + no_rue;
+		result = prime * result + ((no_rue == null) ? 0 : no_rue.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((pays == null) ? 0 : pays.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());

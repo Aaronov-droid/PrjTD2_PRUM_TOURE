@@ -218,15 +218,15 @@ public class Menu {
 			System.out.println("Nouvelle Id de la revue :");
 			int idrevue=myObj.nextInt();
 			myObj.nextLine();
-			abo.setDate_debut(Date1);
-			abo.setPrenom(Prenom);
-			abo.setNo_rue(Rue);
-			abo.setVoie(Voie);
+			abo.setdate_debut(Debut);
+			abo.setdate_fin(Fin);
+			abo.setid_client(idclient);
+			abo.setid_revue(idrevue);
 			obj.getAbonnementDAO().update(abo);
 			}
 		
 		else if(choix.equals("3")) {
-			System.out.println("Entrez l'id du client à supprimer");
+			System.out.println("Entrez l'id de l'abonnement à supprimer");
 			int id=myObj.nextInt();
 			myObj.nextLine();
 			obj.getAbonnementDao().delete(obj.getAbonnementDAO().getByid(id));

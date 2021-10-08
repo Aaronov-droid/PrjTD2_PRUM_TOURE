@@ -1,4 +1,4 @@
-package pojo;
+package metier;
 
 
 public class Client {
@@ -12,7 +12,8 @@ public class Client {
 	protected String Ville;
 	protected String Voie;
 	
-	public Client(String code_postal, int id_client, String nom, String prenom, String no_rue, String voie, String ville, String pays) {
+	public Client(String code_postal, int id_client, String nom, String no_rue, String pays, String prenom, String ville,
+			String voie) {
 		super();
 		this.code_postal = code_postal;
 		this.id_client = id_client;
@@ -20,8 +21,8 @@ public class Client {
 		this.no_rue = no_rue;
 		this.pays = pays;
 		this.prenom = prenom;
-		this.Ville = ville;
-		this.Voie = voie;
+		Ville = ville;
+		Voie = voie;
 	}
 
 	public String getCode_postal() {
@@ -128,11 +129,17 @@ public class Client {
 				return false;
 		} else if (!Voie.equals(other.Voie))
 			return false;
-		if (code_postal != other.code_postal)
+		if (code_postal == null) {
+			if (other.code_postal != null)
+				return false;
+		} else if (!code_postal.equals(other.code_postal))
 			return false;
 		if (id_client != other.id_client)
 			return false;
-		if (no_rue != other.no_rue)
+		if (no_rue == null) {
+			if (other.no_rue != null)
+				return false;
+		} else if (!no_rue.equals(other.no_rue))
 			return false;
 		if (nom == null) {
 			if (other.nom != null)
@@ -151,6 +158,7 @@ public class Client {
 			return false;
 		return true;
 	}
+
 	
 	
 	

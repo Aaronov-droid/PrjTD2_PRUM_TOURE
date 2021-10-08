@@ -1,10 +1,15 @@
 package fabrique;
 
 import dao.Persistance;
+import metierDAO.AbonnementDAO;
+import metierDAO.ClientDAO;
+import metierDAO.PeriodiciteDAO;
+import metierDAO.RevueDAO;
+
 
 public abstract class DAOFactory {
 	public static DAOFactory getDAOFactory(Persistance cible) {
-		DAOFactory daof = null;
+		DAOFactory daoF = null;
 		
 		switch (cible) {
 		case MySQL :
@@ -14,7 +19,7 @@ public abstract class DAOFactory {
 			daoF = new ListeMemoireDAOFactory();
 			break;
 		}
-		return daof;
+		return daoF;
 	}
 	
 	public abstract AbonnementDAO getAbonnementDAO();

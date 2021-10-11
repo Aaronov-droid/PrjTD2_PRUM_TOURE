@@ -1,6 +1,7 @@
 package Main;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import fabrique.DAOFactory;
@@ -174,13 +175,13 @@ public class Menu {
 			System.out.println("Debut de l'abonnement au format (YYYY-MM-DD) : ");
 			String Debut = sc.nextLine();
 			DateTimeFormatter formatageDebut = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-			LocalDate dateDebut=null;
-			dateDebut = LocalDate.parse(Debut, formatageDebut);
+			LocalDateTime dateDebut=null;
+			dateDebut = LocalDateTime.parse(Debut, formatageDebut);
 			System.out.println("Fin de l'abonnementt au format (YYYY-MM-DD) : ");
 			String Fin = sc.nextLine();
 			DateTimeFormatter formatageFin = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-			LocalDate dateFin=null;
-			dateFin = LocalDate.parse(Fin, formatageFin);
+			LocalDateTime dateFin=null;
+			dateFin = LocalDateTime.parse(Fin, formatageFin);
 			System.out.println("Id du client :");
 			int idclient=sc.nextInt();
 			System.out.println("Id de ma revue :");
@@ -197,13 +198,13 @@ public class Menu {
 			System.out.println("Nouveau Debut de l'abonnement au format (YYYY-MM-DD) :");
 			String Debut=sc.nextLine();
 			DateTimeFormatter formatageDebut = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-			LocalDate dateDebut=null;
-			dateDebut = LocalDate.parse(Debut, formatageDebut);
+			LocalDateTime dateDebut=null;
+			dateDebut = LocalDateTime.parse(Debut, formatageDebut);
 			System.out.println("Nouvelle Fin de l'abonnement au format (YYYY-MM-DD) :");
 			String Fin=sc.nextLine();
 			DateTimeFormatter formatageFin = DateTimeFormatter.ofPattern("YYYY-MM-DD");
-			LocalDate dateFin=null;
-			dateFin = LocalDate.parse(Fin, formatageFin);
+			LocalDateTime dateFin=null;
+			dateFin = LocalDateTime.parse(Fin, formatageFin);
 			System.out.println("Nouveau Id du client :");
 			int idclient=sc.nextInt();
 			sc.nextLine();

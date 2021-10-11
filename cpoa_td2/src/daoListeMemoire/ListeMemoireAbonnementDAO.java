@@ -1,10 +1,13 @@
 package daoListeMemoire;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import metier.Abonnement;
 import metier.Client;
+import metier.Revue;
 import metierDAO.AbonnementDAO;
 
 public class ListeMemoireAbonnementDAO implements AbonnementDAO{
@@ -14,9 +17,13 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 	private ListeMemoireAbonnementDAO() 
 	{
 		this.donnees = new ArrayList<Abonnement>();
-		
-		//this.donnees.add(new Abonnement(1,datedebut,datefin,1,1));
-		//this.donnees.add(new Abonnement(2,datedebut,datefin,2,2));
+		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    LocalDateTime dateDebutAbo1 = LocalDateTime.parse("2021-10-11 16:18:30", formatage);
+	    LocalDateTime dateFinAbo1 = LocalDateTime.parse("2022-10-11 16:18:30", formatage);
+	    LocalDateTime dateDebutAbo2 = LocalDateTime.parse("2022-10-11 16:18:35", formatage);
+	    LocalDateTime dateFinAbo2 = LocalDateTime.parse("2023-09-15 15:15:40", formatage);
+		this.donnees.add(new Abonnement(1,dateDebutAbo1,dateFinAbo1,1,1));
+		this.donnees.add(new Abonnement(2,dateDebutAbo2,dateFinAbo2,2,2));
 	}
 	
 	public static ListeMemoireAbonnementDAO getInstance() {
@@ -31,7 +38,10 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 	@Override
 	public Abonnement getById(int id) {
 		// TODO Auto-generated method stub
-		//int idx = this.donnees.indexOf(new Abonnement(id," "));
+		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+	    LocalDateTime dateDebutAbo = LocalDateTime.parse("2021-10-11 16:18:30", formatage);
+	    LocalDateTime dateFinAbo = LocalDateTime.parse("2022-10-11 16:18:30", formatage);
+		int idx = this.donnees.indexOf(new Abonnement(id,dateDebutAbo,dateFinAbo,id,id));
 		if (idx == -1)
 		{
 			throw new IllegalArgumentException("Aucun client ne possède cet identifiant");
@@ -53,7 +63,6 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 		boolean ok = this.donnees.add(objet);
 		return ok;
 	}
-
 	@Override
 	public boolean update(Abonnement objet) {
 		// TODO Auto-generated method stub
@@ -64,7 +73,7 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 		}
 		else
 		{
-			this.donnees.set(idx, objet)
+			this.donnees.set(idx, objet);
 		}
 		return true;
 	}

@@ -1,8 +1,10 @@
 package connexion;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Connexion {
+public class connexion {
 	public Connection creeConnexion() {
 		String url= //lien mysql
 		url += "?serverTimezone=Europe/Paris";
@@ -13,6 +15,6 @@ public class Connexion {
 		}	catch (SQLException sqle) {
 			System.out.println("Erreur connexion" + sqle.getMessage());
 		}
-		return maConnexion
+		return maConnexion;
 	}
 }

@@ -1,5 +1,7 @@
 package daoListeMemoire;
 
+import java.util.ArrayList;
+
 import metier.Revue;
 import metierDAO.RevueDAO;
 
@@ -11,8 +13,8 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 	{
 		this.donnees = new ArrayList<Revue>();
 		
-		//this.donnees.add(new Revue(1,...));
-		//this.donnees.add(new Revue(2,...));
+		this.donnees.add(new Revue(1,"Obéron","Un elfes vénère",15,"Roi des Elfes",1));
+		this.donnees.add(new Revue(2,"Titiana","Une fée enchantresse",15,"Reine des fées",2));
 	}
 	
 	public static ListeMemoireRevueDAO getInstance() {
@@ -24,8 +26,9 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 
 	@Override
 	public Revue getById(int id) {
+		float tarif_numero = 0;
 		// TODO Auto-generated method stub
-		//int idx = this.donnees.indexOf(new Revue(""));
+		int idx = this.donnees.indexOf(new Revue(id,"titre","description",tarif_numero,"visuel",id));
 		if (idx == -1)
 		{
 			throw new IllegalArgumentException("Aucune revue ne possède cet identifiant");
@@ -58,7 +61,7 @@ public class ListeMemoireRevueDAO implements RevueDAO {
 		}
 		else
 		{
-			this.donnees.set(idx, objet)
+			this.donnees.set(idx, objet);
 		}
 		return true;
 	}

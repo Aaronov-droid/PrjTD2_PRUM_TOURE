@@ -1,32 +1,32 @@
 package metier;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Abonnement {
 	private int id_abonnement;
-	private LocalDate date_debut;
-	private LocalDate date_fin;
+	private LocalDateTime date_debut;
+	private LocalDateTime date_fin;
 	private int id_client;
 	private int id_revue;
 	
-	public Abonnement(int id_abonnement, LocalDate date_debut, LocalDate date_fin, int id_client, int id_revue) {
+	public Abonnement(int id_abonnement, LocalDateTime dateDebutAbo, LocalDateTime dateFinAbo, int id_client, int id_revue) {
 		super();
 		this.id_abonnement = id_abonnement;
-		this.date_debut = date_debut;
-		this.date_fin = date_fin;
+		this.date_debut = dateDebutAbo;
+		this.date_fin = dateFinAbo;
 		this.id_client = id_client;
 		this.id_revue = id_revue;
 	}
-	public LocalDate getDate_debut() {
+	public LocalDateTime getDate_debut() {
 		return date_debut;
 	}
-	public void setDate_debut(LocalDate date_debut) {
+	public void setDate_debut(LocalDateTime date_debut) {
 		this.date_debut = date_debut;
 	}
-	public LocalDate getDate_fin() {
+	public LocalDateTime getDate_fin() {
 		return date_fin;
 	}
-	public void setDate_fin(LocalDate date_fin) {
+	public void setDate_fin(LocalDateTime date_fin) {
 		this.date_fin = date_fin;
 	}
 	public int getId_client() {
@@ -83,5 +83,13 @@ public class Abonnement {
 		if (id_revue != other.id_revue)
 			return false;
 		return true;
+	}
+	public void setId_abonnement(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getId_abonnement() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }

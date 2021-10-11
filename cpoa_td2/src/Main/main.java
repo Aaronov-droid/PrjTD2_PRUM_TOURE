@@ -8,7 +8,7 @@ import fabrique.MySqlDAOFactory;
 
 public class main {
 	private static Scanner myObj = new Scanner(System.in);
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		fabrique.MySqlDAOFactory obj = null;
 		Persistance n1 = null;

@@ -17,11 +17,11 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 	private ListeMemoireAbonnementDAO() 
 	{
 		this.donnees = new ArrayList<Abonnement>();
-		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	    LocalDateTime dateDebutAbo1 = LocalDateTime.parse("2021-10-11 16:18:30", formatage);
-	    LocalDateTime dateFinAbo1 = LocalDateTime.parse("2022-10-11 16:18:30", formatage);
-	    LocalDateTime dateDebutAbo2 = LocalDateTime.parse("2022-10-11 16:18:35", formatage);
-	    LocalDateTime dateFinAbo2 = LocalDateTime.parse("2023-09-15 15:15:40", formatage);
+		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    LocalDateTime dateDebutAbo1 = LocalDateTime.parse("2021-10-11", formatage);
+	    LocalDateTime dateFinAbo1 = LocalDateTime.parse("2022-10-11", formatage);
+	    LocalDateTime dateDebutAbo2 = LocalDateTime.parse("2022-10-11", formatage);
+	    LocalDateTime dateFinAbo2 = LocalDateTime.parse("2023-09-15", formatage);
 		this.donnees.add(new Abonnement(1,dateDebutAbo1,dateFinAbo1,1,1));
 		this.donnees.add(new Abonnement(2,dateDebutAbo2,dateFinAbo2,2,2));
 	}
@@ -38,13 +38,13 @@ public class ListeMemoireAbonnementDAO implements AbonnementDAO{
 	@Override
 	public Abonnement getById(int id) {
 		// TODO Auto-generated method stub
-		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-	    LocalDateTime dateDebutAbo = LocalDateTime.parse("2021-10-11 16:18:30", formatage);
-	    LocalDateTime dateFinAbo = LocalDateTime.parse("2022-10-11 16:18:30", formatage);
+		DateTimeFormatter formatage = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	    LocalDateTime dateDebutAbo = LocalDateTime.parse("2021-10-11", formatage);
+	    LocalDateTime dateFinAbo = LocalDateTime.parse("2022-10-11", formatage);
 		int idx = this.donnees.indexOf(new Abonnement(id,dateDebutAbo,dateFinAbo,id,id));
 		if (idx == -1)
 		{
-			throw new IllegalArgumentException("Aucun client ne possède cet identifiant");
+			throw new IllegalArgumentException("Aucun client ne possÃ¨de cet identifiant");
 		}
 		else
 		{

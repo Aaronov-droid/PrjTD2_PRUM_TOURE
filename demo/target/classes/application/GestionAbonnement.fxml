@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ControllerAbonnements">
+  <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="95.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" text="Liste des Abonnements">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </top>
+         <left>
+            <VBox alignment="CENTER" prefHeight="190.0" prefWidth="380.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView fx:id="TableAbonnement" prefHeight="200.0" prefWidth="250.0">
+                    <columns>
+                      <TableColumn prefWidth="79.0" text="Client" />
+                        <TableColumn prefWidth="70.0" sortable="false" text="Revue" />
+                        <TableColumn prefWidth="116.0" text="Date de début" />
+                        <TableColumn prefWidth="114.0" text="Date de fin" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </left>
+         <right>
+            <VBox alignment="CENTER" prefHeight="190.0" prefWidth="250.0" spacing="20.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_ajout" mnemonicParsing="false" onAction="#click_btn_gestion" text="Ajouter un abonnement" />
+                  <Button fx:id="btn_modifier" mnemonicParsing="false" onAction="#click_btn_gestion" text="Modifier un abonnement" />
+                  <Button fx:id="btn_suppr" mnemonicParsing="false" onAction="#click_btn_suppr" text="Supprimer un abonnement" />
+               </children>
+            </VBox>
+         </right>
+         <bottom>
+            <VBox alignment="CENTER" prefHeight="50.0" prefWidth="640.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="btn_retour" mnemonicParsing="false" onAction="#click_btn_retour" text="Revenir à l'acceuil" />
+               </children>
+            </VBox>
+         </bottom>
+      </BorderPane>
+  </children>
+</VBox>

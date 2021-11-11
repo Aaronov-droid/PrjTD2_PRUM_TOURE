@@ -1,30 +1,30 @@
 public class ListeClient implements Initializable {
 
     @FXML
-    private TableView<ListeClient> TableClient;
+    private TableView<Client> TableClient;
     @FXML
-    private Button ButtonAjoutClient, ButtonSuppClient, ButtonAcceuil;
+    private Button btn_supp_client, btn_ajout_client, ButtonAcceuil;
 
     public void setColumns() //Création des colonnes
     {
-    TableColumn<TableClient, String> colNuméro = new TableColumn<>("Numero");
-    TableColumn<TableClient, String> colNom = new TableColumn<>("Nom");
-    TableColumn<TableClient, String> colPrenom = new TableColumn<>("Prenom");
-    TableColumn<TableClient, String> colAdresse = new TableColumn<>("Adresse Complète");
-    colNuméro.setCellValueFactory(new PropertyValueFactory<TableClient, String>("Numero"));
-    colNom.setCellValueFactory(new PropertyValueFactory<TableClient, String>("Nom"));
-    colPrenom.setCellValueFactory(new PropertyValueFactory<TableClient, String>("Prenom"));
-    colAdresse.setCellValueFactory(new PropertyValueFactory<TableClient, String>("Adresse"));
+    TableColumn<Client, String> colNuméro = new TableColumn<>("Numero");
+    TableColumn<Client, String> colNom = new TableColumn<>("Nom");
+    TableColumn<Client, String> colPrenom = new TableColumn<>("Prenom");
+    TableColumn<Client, String> colAdresse = new TableColumn<>("Adresse Complète");
+    colNuméro.setCellValueFactory(new PropertyValueFactory<Client, String>("Numero"));
+    colNom.setCellValueFactory(new PropertyValueFactory<Client, String>("Nom"));
+    colPrenom.setCellValueFactory(new PropertyValueFactory<Client, String>("Prenom"));
+    colAdresse.setCellValueFactory(new PropertyValueFactory<Client, String>("Adresse"));
     this.TableClient.getColumns().setAll(colNuméro, colNom, colPrenom, colAdresse);
     }
 
     public void setData() //manipulation des données dans la table
     {
-        this.ListeClient.getItem().addAll(DAOFactory.getDAOFactory().getProduitDAO().findAll());
-        this.ListeClient.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue) ->
+        this.TableClient.getItem().addAll(dao.getClientDAO().findAll());
+        this.TableClient.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue) ->
         {
-            this.ButtonSuppClient.setDisable(newValue == null);
-            this.ButtonAjoutClient.setDisable(newValue != null);
+            this.btn_supp_client.setDisable(newValue == null);
+            this.btn_ajout_client.setDisable(newValue != null);
             if(newValue!=null)setValues();
         }
     }

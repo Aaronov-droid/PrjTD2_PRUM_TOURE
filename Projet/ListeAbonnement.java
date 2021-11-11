@@ -20,7 +20,7 @@ public class ListeAbonnement implements Initializable {
 
     public void setData() //manipulation des données dans la table
     {
-        this.ListeAbonnement.getItem().addAll(DAOFactory.getDAOFactory().getProduitDAO().findAll());
+        this.ListeAbonnement.getItem().addAll(DAOFactory.getDAOFactory().getAbonnementDAO().findAll());
         this.ListeAbonnement.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue) ->
         {
             this.ButtonSuppAbonnement.setDisable(newValue == null);

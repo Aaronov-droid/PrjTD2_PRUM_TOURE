@@ -1,25 +1,25 @@
 public class ListePeriodicite implements Initializable {
 
     @FXML
-    private TableView<ListePeriodicite> TablePeriodicite;
+    private TableView<Periodicite> TablePeriodicite;
     @FXML
-    private Button ButtonAjoutPeriodicite, ButtonSuppPeriodicite, ButtonAcceuil;
+    private Button btn_supp_periodicite, btn_ajout_periodicite, ButtonAcceuil;
 
     public void setColumns() //Création des colonnes
     {
-        TableColumn<TablePeriodicite, String> colPeriodicite = new TableColumn<>("Periodicite");
-        colPeriodicite.setCellValueFactory(new PropertyValueFactory<TablePeriodicite, String>("Periodicite"));
+        TableColumn<Periodicite, String> colPeriodicite = new TableColumn<>("Periodicite");
+        colPeriodicite.setCellValueFactory(new PropertyValueFactory<Periodicite, String>("Periodicite"));
         this.TablePeriodicite.getColumns().setAll(colPeriodicite);
     }
 
     public void setData() //manipulation des données dans la table
     {
-        this.ListePeriodicite.getItem().addAll(DAOFactory.getDAOFactory().getProduitDAO().findAll());
-        this.ListePeriodicite.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue) ->
+        this.TablePeriodicite.getItem().addAll(dao.getPeriodiciteDAO().findAll());
+        this.TablePeriodicite.getSelectionModel().selectedItemProperty().addListener(observable, oldValue, newValue) ->
         {
-            this.ButtonSuppPeriodicite.setDisable(newValue == null);
-            this.ButtonAjoutPeriodicite.setDisable(newValue != null);
-            if(newValue!=null)setValues();
+            this.btn_supp_periodicite.setDisable(newValue == null);
+            this.btn_ajout_periodicite.setDisable(newValue != null);
+            //if(newValue!=null)setValues();
         }
     }
 
